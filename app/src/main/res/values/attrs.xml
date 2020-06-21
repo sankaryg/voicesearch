@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ControlBarItemToggleView">
+        <attr name="src" format="reference" />
+        <attr name="text" format="string" />
+    </declare-styleable>
+
+    <attr name="toolbarColor" format="color" />
+    <attr name="strongColor" format="color" />
+    <attr name="weakColor" format="color" />
+    <attr name="weakerColor" format="color" />
+    <attr name="searchBoxColor" format="color" />
+
+    <attr name="inputTheme" format="reference" />
+
+</resources>

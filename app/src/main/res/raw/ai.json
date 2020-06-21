@@ -1,0 +1,182 @@
+[
+  {
+    "pname": "com.google.android.youtube",
+    "order": "1",
+    "name": "YouTube",
+    "inserted": true,
+    "action": 12
+  },
+  {
+    "pname": "com.google.android.googlequicksearchbox",
+    "order": "2",
+    "name": "Google",
+    "inserted": true,
+    "action": 2
+  },
+  {
+    "pname": "com.apps",
+    "order": "3",
+    "name": "Apps",
+    "inserted": true,
+    "action": 1
+  },
+  {
+    "pname": "com.apps.google.imagesearch",
+    "order": "4",
+    "name": "Google Images",
+    "inserted": true,
+    "action": 2
+  },
+  {
+    "pname": "com.facebook.katana",
+    "order": "5",
+    "name": "Facebook",
+    "inserted": true,
+    "action": 12
+  },
+  {
+    "pname": "com.amazon.mShop.android.shopping",
+    "pname1": "com.amazon.mShop.android.shopping",
+    "order": "6",
+    "name": "Amazon",
+    "inserted": true,
+    "action": 2
+  },
+  {
+    "pname": "com.microsoft.bing",
+    "order": "7",
+    "name": "Bing",
+    "inserted": true,
+    "action": 12
+  },
+  {
+    "pname": "com.duckduckgo.mobile.android",
+    "order": "8",
+    "name": "Duck Duck Go",
+    "inserted": true,
+    "action": 12
+  },
+  {
+    "pname": "com.android.contacts",
+    "order": "9",
+    "name": "Contacts",
+    "inserted": true,
+    "action": 1
+  },
+  {
+    "pname": "com.google.android.apps.docs",
+    "order": "10",
+    "name": "Drive",
+    "inserted": false,
+    "action": 12
+  },
+  {
+    "pname": "com.ebay.mobile",
+    "order": "11",
+    "name": "Ebay",
+    "inserted": true,
+    "action": 12
+  },
+  {
+    "pname": "com.google.android.gm",
+    "order": "12",
+    "name": "Gmail",
+    "inserted": false
+  },
+  {
+    "pname": "com.imo.android.imoim",
+    "order": "13",
+    "name": "Imo",
+    "inserted": false
+  },
+  {
+    "pname": "com.imdb.mobile",
+    "order": "14",
+    "name": "IMDb",
+    "inserted": true
+  },
+  {
+    "pname": "com.instagram.android",
+    "order": "15",
+    "name": "Instagram",
+    "inserted": false
+  },
+  {
+    "pname": "com.linkedin.android",
+    "order": "16",
+    "name": "LinkedIn",
+    "inserted": false
+  },
+  {
+    "pname": "com.google.android.apps.maps",
+    "order": "17",
+    "name": "Maps",
+    "inserted": false
+  },
+  {
+    "pname": "com.facebook.orca",
+    "order": "18",
+    "name": "Messenger",
+    "inserted": false
+  },
+  {
+    "pname": "com.google.android.music",
+    "order": "19",
+    "name": "Play Music",
+    "inserted": false
+  },
+  {
+    "pname": "com.android.vending",
+    "order": "20",
+    "name": "Play Store",
+    "inserted": true
+  },
+  {
+    "pname": "com.reddit.frontpage",
+    "order": "21",
+    "name": "Reddit",
+    "inserted": true
+  },
+  {
+    "pname": "com.rotten.tomotoes",
+    "order": "22",
+    "name": "Rotten Tomatoes",
+    "inserted": true
+  },
+  {
+    "pname": "com.skype.raider",
+    "order": "24",
+    "name": "Skype",
+    "inserted": false
+  },
+  {
+    "pname": "com.google.android.apps.translate",
+    "order": "25",
+    "name": "Translate",
+    "inserted": true
+  },
+  {
+    "pname": "com.twitter.android",
+    "order": "26",
+    "name": "Twitter",
+    "inserted": true
+  },
+  {
+    "pname": "org.wikipedia",
+    "order": "27",
+    "name": "Wikipedia",
+    "inserted": true
+  },
+  {
+    "pname": "com.whatsapp",
+    "order": "28",
+    "name": "Whatsapp",
+    "inserted": false
+  },
+  {
+    "pname": "com.yahoo.mobile.client.android.search",
+    "order": "29",
+    "name": "Yahoo",
+    "inserted": true
+  }
+]
