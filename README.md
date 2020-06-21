@@ -21,7 +21,7 @@ This app also showcases the following Jetpack libraries working together: [Room]
 
 App is currently in beta, you can download the apk here:
 
-[APK DOWNLOAD](https://github.com/bernaferrari/SDKMonitor/raw/master/assets/sdkmonitor.apk)
+[APK DOWNLOAD](https://github.com/sankaryg/voicesearch/raw/master/assets/sdkmonitor.apk)
 
 ## Screenshots
 
@@ -107,12 +107,12 @@ A lot of the structure and ideas from this app came from [Changes](https://play.
 ### Reporting Issues
 
 Issues and Pull Requests are welcome.
-You can report [here](https://github.com/bernaferrari/SDKMonitor/issues).
+You can report [here](https://github.com/sankaryg/voicesearch/issues).
 
 License
 -------
 
-Copyright 2018 Bernardo Ferrari.
+Copyright 2018 Sankaranarayanan Y G.
 
 Licensed to the Apache Software Foundation (ASF) under one or more contributor
 license agreements.  See the NOTICE file distributed with this work for
