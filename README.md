@@ -72,17 +72,14 @@ There are two constraints: *battery not low* and *device charging*.
   * [Android-Iconics][1] deal with icons without suffering.
   * [Architecture Components][2] stated above.
   * [Epoxy][3] for making static RecyclerViews as efficient and nice as possible.
-  * [Groupie][4] for making RecyclerViews as simple as possible. Unfortunately it is kind of deprecated, so a lot of work was done using Epoxy.
-  * [Coroutines][5] for simple background work.
-  * [Logger][6] logs that are useful and can disabled on release.
-  * [material-about-library][7] \[eventually\]create an about page without suffering.
-  * [Material Dialogs][8] show dialogs in a simple and easy way.
-  * [Notify][9] create notifications without effort.
-  * [MvRx][10] on the main fragment.
-  * [Stetho][11] debug the database easily.
-  * [timeago][12] makes it easy display relative dates (i.e. 1 day ago).
-  * [RxJava][13] deals with MvRx and coordinates most of the work on the app.
-  * [Dagger 2][14] dependency injection for sharedPreferences with application Context, provides singleton database instances.
+  * [Coroutines][4] for simple background work.
+  * [Logger][5] logs that are useful and can disabled on release.
+  * [material-about-library][6] \[eventually\]create an about page without suffering.
+  * [Material Dialogs][7] show dialogs in a simple and easy way.
+  * [MvRx][8] on the main fragment.
+  * [Stetho][9] debug the database easily.
+  * [RxJava][10] deals with MvRx and coordinates most of the work on the app.
+  * [Dagger 2][11] dependency injection for sharedPreferences with application Context, provides singleton database instances.
 
 #### Special thanks
 A lot of the structure and ideas from this app came from [Changes](https://play.google.com/store/apps/details?id=com.saladevs.changelogclone), which is [also open source](https://github.com/GSala/Changelogs).
