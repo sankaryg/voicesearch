@@ -88,17 +88,14 @@ A lot of the structure and ideas from this app came from [Changes](https://play.
 [1]: https://github.com/mikepenz/Android-Iconics
 [2]: https://developer.android.com/topic/libraries/architecture/
 [3]: https://github.com/airbnb/epoxy
-[4]: https://github.com/lisawray/groupie
-[5]: https://github.com/Kotlin/kotlinx.coroutines
-[6]: https://github.com/orhanobut/logger
-[7]: https://github.com/daniel-stoneuk/material-about-library
-[8]: https://github.com/afollestad/material-dialogs
-[9]: https://github.com/Karn/notify
-[10]: https://github.com/airbnb/MvRx
-[11]: http://facebook.github.io/stetho/
-[12]: https://github.com/marlonlom/timeago
-[13]: https://github.com/ReactiveX/RxJava
-[14]: https://github.com/google/dagger
+[4]: https://github.com/Kotlin/kotlinx.coroutines
+[5]: https://github.com/orhanobut/logger
+[6]: https://github.com/daniel-stoneuk/material-about-library
+[7]: https://github.com/afollestad/material-dialogs
+[8]: https://github.com/airbnb/MvRx
+[9]: http://facebook.github.io/stetho/
+[10]: https://github.com/ReactiveX/RxJava
+[11]: https://github.com/google/dagger
 
 
 ### Reporting Issues
