@@ -1,6 +1,6 @@
 <p align="center"><img src="assets/logo.png" alt="ChangeDetection" height="200px"></p>
 
-SDK Monitor
+Voice Search
 =================
 
 This app tracks changes on targetSDK from your apps. Starting November 1st, 2018, Google is [requiring all app updates](https://developer.android.com/distribute/best-practices/develop/target-sdk) to target at least 26 (28 is the latest).
