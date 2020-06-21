@@ -112,7 +112,7 @@ You can report [here](https://github.com/sankaryg/voicesearch/issues).
 License
 -------
 
-Copyright 2018 Sankaranarayanan Y G.
+Copyright 2020 Sankaranarayanan Y G.
 
 Licensed to the Apache Software Foundation (ASF) under one or more contributor
 license agreements.  See the NOTICE file distributed with this work for
