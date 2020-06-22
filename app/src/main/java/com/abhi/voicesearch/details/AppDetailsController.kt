@@ -24,7 +24,7 @@ internal class AppDetailsController(fromSettings:Boolean): TypedEpoxyController<
                 onClick{ _ ->
                     Logger.d(app)
                     if(!fromSettings) {
-                        AppManager.launchIntentForPackage(app, null)
+                        AppManager.launchIntentForPackage(app, null,  true)
                         DetailsDialog.dismissDialog()
                     }else{
                         if(Injector.get().showSystemApps().get()){

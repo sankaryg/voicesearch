@@ -99,9 +99,9 @@ class MainFragment : DaggerBaseSearchFragment() {
         // [START subscribe_topic]
         FirebaseMessaging.getInstance().subscribeToTopic(TOPIC)
                 .addOnCompleteListener { task ->
-                    var message = getString(R.string.message_subscribed)
+
                     if (!task.isSuccessful) {
-                        message = getString(R.string.message_subscribe_failed)
+
                     }
                     //Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                 }

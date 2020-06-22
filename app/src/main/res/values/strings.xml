@@ -3,39 +3,15 @@
 
 
     <string name="empty_logs">No changes detected</string>
-    <string name="target_history">TargetSDK history</string>
-    <string name="background_sync">Background Sync</string>
     <string name="quick_search">Quick Search</string>
-    <string name="sync_interval">Sync Interval</string>
-    <string name="constraints">Constraints</string>
-    <string name="charging">Charging</string>
-    <string name="batter_not_low">Battery not low</string>
     <string name="results">Result</string>
-
-    <string name="min">min</string>
-    <string name="hour">1 hour</string>
-    <string name="hours">hours</string>
-    <string name="days">days</string>
-
-    <string-array name="singularTime">
-        <item>minute</item>
-        <item>hour</item>
-        <item>day</item>
-    </string-array>
-
-    <string-array name="pluralTime">
-        <item>minutes</item>
-        <item>hours</item>
-        <item>days</item>
-    </string-array>
+    <string name="languages">Language</string>
 
     <plurals name="searchApps">
         <item quantity="one">Search %d app</item>
         <item quantity="other">Search %d apps</item>
     </plurals>
 
-    <string name="sync_every">Sync every %d %s</string>
-    <string name="sync_disabled">Sync is disabled</string>
 
     <string name="dismiss">Dismiss</string>
     <string name="contact">Contact</string>
@@ -45,9 +21,7 @@
         <a href=\'https://www.linkedin.com/in/y-g-sankaranarayanan-07216480\'>LinkedIn</a><br/><br/>
   ]]></string>
 
-    <string name="background_sync_description">Periodically check if targetSDK changed, since apps are always being updated.</string>
     <string name="home">Home</string>
-    <string name="logs">Logs</string>
     <string name="settings">Settings</string>
     <string name="loading">Loading..</string>
 
@@ -55,7 +29,6 @@
     <string name="notification_channel_name" translatable="true">Voice Search</string>
 
     <string name="fcm_message">FCM Message</string>
-    <string name="message_subscribe_failed">Failed to subscribe to topic</string>
-    <string name="message_subscribed">Subscribed to topic</string>
+    <string name="empty_search">No results found</string>
 
 </resources>

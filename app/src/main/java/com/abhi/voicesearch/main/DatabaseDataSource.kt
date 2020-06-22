@@ -22,14 +22,7 @@ class DatabaseDataSource @Inject constructor(
 
     override fun getAppsList(): Observable<List<App>> {
 
-        return showSystemApps.observe().switchMap { systemApps ->
-//            if (systemApps) {
-//                // return all apps
-//                mAppsDao.getAppsListFlowableFiltered()
-//            } else {
-//                // return only the ones from Play Store or that were installed manually.
-//                mAppsDao.getAppsListFlowableFiltered(hasKnownOrigin = true)
-//            }
+        return showSystemApps.observe().switchMap {
             mAppsDao.getAppsListFlowableFiltered()
         }
     }

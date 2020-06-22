@@ -68,37 +68,41 @@ object AppManager {
         }
     }*/
 
-    fun launchIntentForPackage(app: App, query: String?) {
+    fun launchIntentForPackage(app: App, query: String?, default:Boolean = false) {
         try {
             var intent: Intent? = null
             var queryBool: Boolean = true
-            when (app.order) {
-                1-> intent  = Intent(Intent.ACTION_SEARCH)
-                2-> intent =  Intent(Intent.ACTION_WEB_SEARCH)
-                0,3 ->
-                    intent = packageManager.getLaunchIntentForPackage(app.packageName)
-                4 ->
-                    Intent(Intent.ACTION_VIEW, Uri.parse("http://images.google.com")).also { intent = it }
-                5, 6, 7, 8, 10,11, 12, 17, 19, 99,26 -> {
-                    intent = Intent("com.google.android.gms.actions.SEARCH_ACTION")
-                }
-                20->{
-                    intent = Intent("android.intent.action.VIEW").setData(Uri.parse(("https://play.google.com/store/search?q=" + URLEncoder.encode(query, StandardCharsets.UTF_8.toString()) + "")));
-                    queryBool = false
-                }
-                9->{
-                    intent = Intent("android.intent.action.SEARCH", ContactsContract.Contacts.CONTENT_URI);
-                }
-                23 ->{
-                    intent = Intent("android.intent.action.SEARCH", CalendarContract.Calendars.CONTENT_URI);
-                }
-                13, 15, 16, 18,24, 25, 28->{
-                    intent = sendIntent(query)
-                    queryBool = false
-                }
+            if(!default) {
+                when (app.order) {
+                    1 -> intent = Intent(Intent.ACTION_SEARCH)
+                    2 -> intent = Intent(Intent.ACTION_WEB_SEARCH)
+                    0, 3 ->
+                        intent = packageManager.getLaunchIntentForPackage(app.packageName)
+                    4 ->
+                        Intent(Intent.ACTION_VIEW, Uri.parse("http://images.google.com")).also { intent = it }
+                    5, 6, 7, 8, 10, 11, 12, 17, 19, 99, 26 -> {
+                        intent = Intent("com.google.android.gms.actions.SEARCH_ACTION")
+                    }
+                    20 -> {
+                        intent = Intent("android.intent.action.VIEW").setData(Uri.parse(("https://play.google.com/store/search?q=" + URLEncoder.encode(query, StandardCharsets.UTF_8.toString()) + "")));
+                        queryBool = false
+                    }
+                    9 -> {
+                        intent = Intent("android.intent.action.SEARCH", ContactsContract.Contacts.CONTENT_URI);
+                    }
+                    23 -> {
+                        intent = Intent("android.intent.action.SEARCH", CalendarContract.Calendars.CONTENT_URI);
+                    }
+                    13, 15, 16, 18, 24, 25, 28 -> {
+                        intent = sendIntent(query)
+                        queryBool = false
+                    }
 
-                else ->
-                    query?.let { launchBrowser(app, it) }
+                    else ->
+                        query?.let { launchBrowser(app, it) }
+                }
+            }else{
+                intent = packageManager.getLaunchIntentForPackage(app.packageName)
             }
             if (app.order!=9 && app.order!=19 &&  app.order != 20)
             intent?.setPackage(app.packageName)

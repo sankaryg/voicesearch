@@ -50,7 +50,7 @@ class LanguageDialog: BaseDaggerMvRxDialogFragment() {
             }
         }
         return MaterialDialog(context)
-                .title(R.string.results)
+                .title(R.string.languages)
                 .listItemsSingleChoice(items = charArray, initialSelection = initialSelection){ _, index, text ->
                     activity?.toast("selected item $text at index $index")
                     Injector.get().selectLanguage().set(list2[index].subtitle)

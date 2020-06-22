@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.afollestad.materialdialogs.LayoutMode
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.bottomsheets.BottomSheet
@@ -16,7 +17,10 @@ import com.abhi.voicesearch.data.App
 import com.abhi.voicesearch.extensions.darken
 import com.abhi.ui.extras.BaseDaggerMvRxDialogFragment
 import com.abhi.voicesearch.Injector
+import com.abhi.voicesearch.util.toast
 import com.airbnb.mvrx.fragmentViewModel
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.details_fragment.view.*
 import kotlinx.coroutines.runBlocking
 import java.util.ArrayList
@@ -91,7 +95,12 @@ class DetailsDialog : BaseDaggerMvRxDialogFragment() {
             runBlocking {
                     val search = AppManager.removeDuplicateWordFromString(list!!.get(0))
                     mapOfApps = viewModel.fetchApps(search)
-                    appController.setData(mapOfApps)
+                    if(mapOfApps!!.isEmpty()){
+                        activity?.toast(getString(R.string.empty_search))
+                        dismissDialog()
+                    }else {
+                        appController.setData(mapOfApps)
+                    }
 
             }
 

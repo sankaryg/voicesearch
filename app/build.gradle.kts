@@ -82,6 +82,7 @@ dependencies {
     implementation(Libs.Kotlin.stdlib)
     implementation(Libs.Coroutines.core)
     implementation(Libs.Coroutines.android)
+    implementation("com.android.support:design:28.0.0")
 
     //fcm
     implementation("com.google.firebase:firebase-core:17.0.0")
