@@ -92,6 +92,13 @@ class RxPrefsModule {
     fun  selectedLanguage(rxPrefs: RxkPrefs): Pref<String>{
         return rxPrefs.string("selectedLanguage", "en-IN")
     }
+
+    @Provides
+    @Named("showBackDialog")
+    fun  showBackDialog(rxPrefs: RxkPrefs): Pref<Int>{
+        return rxPrefs.integer("showBackDialog", 0)
+    }
+
 }
 
 
@@ -198,6 +205,9 @@ interface SingletonComponent {
 
     @Named("orderBySdk")
     fun orderBySdk(): Pref<Boolean>
+
+    @Named("showBackDialog")
+    fun showBackDialog(): Pref<Int>
 
     fun dictRepository(): MainDataSource
 }

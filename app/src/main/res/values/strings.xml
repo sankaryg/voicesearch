@@ -30,5 +30,11 @@
 
     <string name="fcm_message">FCM Message</string>
     <string name="empty_search">No results found</string>
-
+    <string name="back_title1">Enjoying Voice Search?</string>
+    <string name="back_title">&#128541; Digging Voice Search?</string>
+    <string name="back_message">You\'d totally make my day if you left us a rating!</string>
+    <string name="back_positive">LEAVE A RATING NOW &#128077;</string>
+    <string name="back_negative">NO, THANKS</string>
+    <string name="back_neutral">LATER</string>
+    <string name="share">Checkout this cool Voice Search app that i found </string>
 </resources>

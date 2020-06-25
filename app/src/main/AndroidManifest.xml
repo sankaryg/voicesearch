@@ -15,12 +15,25 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppThemeDark">
+        <receiver
+            android:name=".core.PackageReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
         <service
             android:name=".push.VSFirebaseMessagingService"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
@@ -35,30 +48,25 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        
-        <!-- [START fcm_default_icon] -->
+        </activity> <!-- [START fcm_default_icon] -->
         <!--
  Set custom default icon. This is used when no icon is set for incoming notification messages.
              See README(https://goo.gl/l4GJaQ) for more.
         -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/common_google_signin_btn_icon_dark"/>
+            android:resource="@drawable/common_google_signin_btn_icon_dark" />
         <!--
  Set color used with incoming notification messages. This is used when no color is set for the incoming
              notification message. See README(https://goo.gl/6BKBk7) for more.
         -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/colorAccent"/> <!-- [END fcm_default_icon] -->
+            android:resource="@color/colorAccent" /> <!-- [END fcm_default_icon] -->
         <!-- [START fcm_default_channel] -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/notification_channel_id" />
-        <!-- [END fcm_default_channel] -->
-
     </application>
 
 </manifest>

@@ -4,10 +4,12 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import android.view.KeyEvent
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.abhi.voicesearch.core.AppManager
+import com.abhi.voicesearch.core.BackDialog
 import com.airbnb.mvrx.BaseMvRxActivity
 import com.abhi.voicesearch.data.App
 import com.abhi.voicesearch.data.source.local.AppsDao
@@ -39,6 +41,9 @@ class MainActivity : BaseMvRxActivity(), SpeechRecognizerandler {
             nav_host_fragment.findNavController()
         )
         mAppsDao = MainApplication.get().component.appsDao()
+        if(Injector.get().showBackDialog().get() == 12){
+            BackDialog.show(this)
+        }
     }
 
     suspend fun fetchApps(search:String): List<App> = withContext(Dispatchers.IO) {
@@ -62,7 +67,7 @@ class MainActivity : BaseMvRxActivity(), SpeechRecognizerandler {
                                     if(apps.isEmpty()){
                                         toast(getString(R.string.empty_search))
                                     }else{
-                                        AppManager.launchIntentForPackage(apps[0], null)
+                                        AppManager.launchIntentForPackage(apps[0], null, true)
                                     }
                                 }
 
@@ -82,7 +87,22 @@ class MainActivity : BaseMvRxActivity(), SpeechRecognizerandler {
         }
     }
 
-
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            if(Injector.get().showBackDialog().get() != -1){
+                if(Injector.get().showBackDialog().get() == 12){
+                    Injector.get().showBackDialog().set(4)
+                }else if(Injector.get().showBackDialog().get() > 4){
+                    var count = Injector.get().showBackDialog().get()
+                    Injector.get().showBackDialog().set(count + 1)
+                }else {
+                    BackDialog.show(this)
+                    return true
+                }
+            }
+        }
+        return super.onKeyDown(keyCode, event)
+    }
 
     override fun selectedAppForSpeech(item: App, requireActivity: FragmentActivity) {
         Logger.d(item)
