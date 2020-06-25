@@ -39,12 +39,17 @@ class SettingsFragment : DaggerBaseRecyclerFragment() {
                 title("Settings")
                 subtitle("Version ${com.abhi.voicesearch.BuildConfig.VERSION_NAME}")
                 clickListenerShare{v->
-                    val shareIntent = Intent().apply {
-                        action = Intent.ACTION_SEND_MULTIPLE
-                        putExtra(Intent.EXTRA_TEXT, getString(R.string.share)+" https://play.google.com/store/apps/details?id=${context?.packageName}")
-                        type = "text/plain"
-                    }
-                    startActivity(Intent.createChooser(shareIntent, "Share with"))
+//                    val shareIntent = Intent().apply {
+//                        action = Intent.ACTION_SEND_MULTIPLE
+//                        putExtra(Intent.EXTRA_TEXT, getString(R.string.share)+" https://play.google.com/store/apps/details?id=${context?.packageName}")
+//                        type = "text/plain"
+//                    }
+//                    startActivity(Intent.createChooser(shareIntent, "Share with"))
+                    val sharingIntent = Intent(Intent.ACTION_SEND)
+                    sharingIntent.type = "text/plain"
+                    sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.share)+" https://play.google.com/store/apps/details?id=${context?.packageName}")
+
+                    startActivity(Intent.createChooser(sharingIntent, "Share with"))
 
 //                    val targetedShareIntents: MutableList<Intent> = ArrayList()
 //                    val shareIntent = Intent(Intent.ACTION_SEND)

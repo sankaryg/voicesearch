@@ -83,6 +83,7 @@ dependencies {
     implementation(Libs.Coroutines.core)
     implementation(Libs.Coroutines.android)
     implementation("com.android.support:design:28.0.0")
+    implementation("androidx.sharetarget:sharetarget:1.0.0-rc01")
 
     //fcm
     implementation("com.google.firebase:firebase-core:17.0.0")

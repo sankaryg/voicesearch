@@ -15,6 +15,7 @@ import com.abhi.voicesearch.data.App
 import com.abhi.voicesearch.data.source.local.AppsDao
 import com.abhi.voicesearch.details.DetailsDialog
 import com.abhi.voicesearch.main.SpeechRecognizerandler
+import com.abhi.voicesearch.settings.SharingShortcutsManager
 import com.abhi.voicesearch.util.toast
 import com.google.android.material.snackbar.Snackbar
 import com.orhanobut.logger.Logger
@@ -27,6 +28,7 @@ class MainActivity : BaseMvRxActivity(), SpeechRecognizerandler {
     private lateinit var requireActivity: FragmentActivity
     lateinit var item: App
     lateinit var mAppsDao:AppsDao
+    private lateinit var sharingShortcutsManager: SharingShortcutsManager
     override fun onCreate(savedInstanceState: Bundle?) {
         if (Injector.get().isLightTheme().get()) {
             setTheme(R.style.AppThemeLight)
@@ -43,6 +45,9 @@ class MainActivity : BaseMvRxActivity(), SpeechRecognizerandler {
         mAppsDao = MainApplication.get().component.appsDao()
         if(Injector.get().showBackDialog().get() == 12){
             BackDialog.show(this)
+        }
+        sharingShortcutsManager = SharingShortcutsManager().also {
+            it.pushDirectShareTargets(this)
         }
     }
 
@@ -67,7 +72,13 @@ class MainActivity : BaseMvRxActivity(), SpeechRecognizerandler {
                                     if(apps.isEmpty()){
                                         toast(getString(R.string.empty_search))
                                     }else{
-                                        AppManager.launchIntentForPackage(apps[0], null, true)
+                                        if(AppManager.appInstalledOrNot(apps[0].packageName)) {
+                                            AppManager.launchIntentForPackage(apps[0], null, true)
+                                        }else{
+                                            if(AppManager.appInstalledOrNot(apps[1].packageName)) {
+                                                AppManager.launchIntentForPackage(apps[1], null, true)
+                                            }
+                                        }
                                     }
                                 }
 
