@@ -20,7 +20,7 @@ internal class AppDetailsController(fromSettings:Boolean): TypedEpoxyController<
             testAppsItem {
                 id(app.packageName)
                 this.title(app.title)
-                this.image2(AppManager.getIconFromId(app.packageName))
+                this.image2(AppManager.getIconFromId(app.packageName, app.order))
                 onClick{ _ ->
                     Logger.d(app)
                     if(!fromSettings) {

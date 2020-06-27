@@ -13,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,6 +29,7 @@ import com.abhi.voicesearch.emptyContent
 import com.abhi.voicesearch.loadingRow
 import com.abhi.voicesearch.util.InsetDecoration
 import com.abhi.ui.dagger.DaggerBaseSearchFragment
+import com.abhi.voicesearch.core.AppManager
 import com.google.firebase.messaging.FirebaseMessaging
 import com.orhanobut.logger.Logger
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -161,6 +163,9 @@ class MainFragment : DaggerBaseSearchFragment() {
             com.abhi.voicesearch.views.LogsItemModel_()
                 .id(item.packageName)
                 .title(item.title)
+                    .image(
+                         AppManager.getIconFromId(item.packageName, item.order)
+                    )
                 .packageName(item.packageName)
                 .onClick { v ->
                     Logger.d(it.title)

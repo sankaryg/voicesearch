@@ -15,6 +15,8 @@ import android.os.Bundle
 import android.provider.CalendarContract
 import android.provider.ContactsContract
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.palette.graphics.Palette
 import com.abhi.voicesearch.Injector
@@ -171,7 +173,7 @@ object AppManager {
 
     // verifies if app came from Play Store or was installed manually
     fun doesAppHasOrigin(packageName: String): Boolean {
-        return isUserApp(AppManager.getApplicationInfo(packageName))
+        return isUserApp(getApplicationInfo(packageName))
     }
 
     fun getPackages(): MutableList<ApplicationInfo>? =
@@ -295,6 +297,7 @@ object AppManager {
         return try {
             packageManager.getPackageInfo(packageName, 0).applicationInfo
         } catch (e: PackageManager.NameNotFoundException) {
+
             null
         }
     }
@@ -303,11 +306,27 @@ object AppManager {
         return getPackageInfo(packageName)
     }
 
-    fun getIconFromId(packageName: String): Drawable? {
+    fun getIconFromId(packageName: String, order:Int=3): Drawable? {
         return try {
             packageManager.getApplicationIcon(getApplicationInfo(packageName))
         } catch (e: Exception) {
-            null
+            when(order) {
+                3 -> ResourcesCompat.getDrawable(context.resources, R.drawable.ic_iconfinder_android_317758, context.theme)
+                4 -> ResourcesCompat.getDrawable(context.resources, R.drawable.ic_iconfinder_images_379462, context.theme)
+                5 -> ResourcesCompat.getDrawable(context.resources, R.drawable.ic_iconfinder_facebook_834722, context.theme)
+                6 -> ResourcesCompat.getDrawable(context.resources, R.drawable.ic_iconfinder_67_amazon_104435, context.theme)
+                7 -> ResourcesCompat.getDrawable(context.resources, R.drawable.ic_iconfinder_74_bing_1181211, context.theme)
+                8 -> ResourcesCompat.getDrawable(context.resources, R.drawable.ic_iconfinder_duckduckgo_334622, context.theme)
+                11 -> ResourcesCompat.getDrawable(context.resources, R.drawable.ic_iconfinder_ebay_313482, context.theme)
+                14 -> ResourcesCompat.getDrawable(context.resources, R.drawable.ic_iconfinder_171_imdb_logo_logos_4373222, context.theme)
+                21 -> ResourcesCompat.getDrawable(context.resources, R.drawable.ic_iconfinder_reddit_2308126, context.theme)
+                22 -> ResourcesCompat.getDrawable(context.resources, R.drawable.ic_tomato, context.theme)
+                25 -> ResourcesCompat.getDrawable(context.resources, R.drawable.ic_translate, context.theme)
+                26 -> ResourcesCompat.getDrawable(context.resources, R.drawable.ic_twitter, context.theme)
+                27 -> ResourcesCompat.getDrawable(context.resources, R.drawable.ic_wikipedia, context.theme)
+                29 -> ResourcesCompat.getDrawable(context.resources, R.drawable.ic_yahoo, context.theme)
+                else-> null
+            }
         }
     }
 

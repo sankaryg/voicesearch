@@ -3,6 +3,9 @@ package com.abhi.voicesearch.views
 import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
+import com.abhi.voicesearch.Injector
+import com.abhi.voicesearch.R
 import com.airbnb.epoxy.DataBindingEpoxyModel
 import com.airbnb.epoxy.EpoxyAttribute
 import com.airbnb.epoxy.EpoxyModelClass
@@ -42,7 +45,14 @@ abstract class AppItemModel:DataBindingEpoxyModel(), CoroutineScope {
     private suspend inline fun updateDrawable() {
         if (drawable == null) {
             drawable = withContext(Dispatchers.IO) {
-                AppManager.getIconFromId(packageName)
+                var t1 = AppManager.getIconFromId(packageName)
+                if(t1 == null){
+                    val app = Injector.get().appsDao().getApp(packageName)
+                    when(app?.order){
+                        3-> t1 = ContextCompat.getDrawable(Injector.get().appContext(), R.drawable.ic_baseline_apps_24)
+                    }
+                }
+                t1
             }
         }
     }

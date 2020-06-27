@@ -79,4 +79,10 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="DirectShareDialogTheme" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorPrimary">@color/primary_light</item>
+        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <item name="android:colorAccent">@color/md_indigo_A200</item>
+    </style>
+
 </resources>

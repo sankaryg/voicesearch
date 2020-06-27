@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.ResolveInfo
 import android.net.Uri
+import android.os.Bundle
 import android.os.Parcelable
 import android.text.TextUtils
 import com.abhi.base.mvrx.simpleController
@@ -24,6 +25,7 @@ class SettingsFragment : DaggerBaseRecyclerFragment() {
     private val viewModel: SettingsViewModel by fragmentViewModel()
     @Inject
     lateinit var settingsViewModelFactory: SettingsViewModel.Factory
+    private lateinit var sharingShortcutsManager: SharingShortcutsManager
 
     override fun epoxyController(): EpoxyController = simpleController(viewModel) { state ->
 
@@ -137,6 +139,13 @@ class SettingsFragment : DaggerBaseRecyclerFragment() {
                     AboutDialog.show(requireActivity())
                 }
                 .addTo(this)
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharingShortcutsManager = SharingShortcutsManager().also {
+            context?.let { it1 -> it.pushDirectShareTargets(it1) }
         }
     }
 }

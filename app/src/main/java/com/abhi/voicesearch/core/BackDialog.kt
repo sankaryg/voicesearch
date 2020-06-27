@@ -46,6 +46,7 @@ class BackDialog: DialogFragment() {
                         dismiss()
                         var count = Injector.get().showBackDialog().get()
                         Injector.get().showBackDialog().set(count + 1)
+                        activity?.finish()
                     }
 
         }else{
@@ -64,11 +65,13 @@ class BackDialog: DialogFragment() {
                     }
                     .negativeButton(R.string.back_negative) {
                         dismiss()
+                        activity?.finish()
                     }
                     .neutralButton(R.string.back_neutral) {
                         dismiss()
                         var count = Injector.get().showBackDialog().get()
                         Injector.get().showBackDialog().set(count + 1)
+                        activity?.finish()
                     }
         }
     }

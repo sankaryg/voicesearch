@@ -17,7 +17,6 @@ import com.abhi.voicesearch.details.DetailsDialog
 import com.abhi.voicesearch.main.SpeechRecognizerandler
 import com.abhi.voicesearch.settings.SharingShortcutsManager
 import com.abhi.voicesearch.util.toast
-import com.google.android.material.snackbar.Snackbar
 import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.Dispatchers
@@ -28,7 +27,7 @@ class MainActivity : BaseMvRxActivity(), SpeechRecognizerandler {
     private lateinit var requireActivity: FragmentActivity
     lateinit var item: App
     lateinit var mAppsDao:AppsDao
-    private lateinit var sharingShortcutsManager: SharingShortcutsManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         if (Injector.get().isLightTheme().get()) {
             setTheme(R.style.AppThemeLight)
@@ -46,9 +45,7 @@ class MainActivity : BaseMvRxActivity(), SpeechRecognizerandler {
         if(Injector.get().showBackDialog().get() == 12){
             BackDialog.show(this)
         }
-        sharingShortcutsManager = SharingShortcutsManager().also {
-            it.pushDirectShareTargets(this)
-        }
+
     }
 
     suspend fun fetchApps(search:String): List<App> = withContext(Dispatchers.IO) {
