@@ -16,8 +16,9 @@ class BackDialog: DialogFragment() {
 
     companion object{
         private const val TAG = "[BACK_DIALOG]"
-
-        fun show(activity:FragmentActivity){
+        var doNotClose = false
+        fun show(activity:FragmentActivity, doNotClose:Boolean = false){
+            this.doNotClose = doNotClose
             val dialog = BackDialog()
             dialog.show(activity.supportFragmentManager, TAG)
         }
@@ -46,6 +47,7 @@ class BackDialog: DialogFragment() {
                         dismiss()
                         var count = Injector.get().showBackDialog().get()
                         Injector.get().showBackDialog().set(count + 1)
+                        if(!doNotClose)
                         activity?.finish()
                     }
 
@@ -65,12 +67,14 @@ class BackDialog: DialogFragment() {
                     }
                     .negativeButton(R.string.back_negative) {
                         dismiss()
+                        if(!doNotClose)
                         activity?.finish()
                     }
                     .neutralButton(R.string.back_neutral) {
                         dismiss()
                         var count = Injector.get().showBackDialog().get()
                         Injector.get().showBackDialog().set(count + 1)
+                        if(!doNotClose)
                         activity?.finish()
                     }
         }

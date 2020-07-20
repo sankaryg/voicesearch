@@ -39,8 +39,8 @@ android {
         applicationId = "com.abhi.voicesearch"
         minSdkVersion(21)
         targetSdkVersion(28)
-        versionCode = 10
-        versionName = "0.9"
+        versionCode = 11
+        versionName = "0.91"
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

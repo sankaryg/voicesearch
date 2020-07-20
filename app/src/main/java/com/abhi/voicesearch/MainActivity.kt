@@ -43,7 +43,7 @@ class MainActivity : BaseMvRxActivity(), SpeechRecognizerandler {
         )
         mAppsDao = MainApplication.get().component.appsDao()
         if(Injector.get().showBackDialog().get() == 12){
-            BackDialog.show(this)
+            BackDialog.show(this, true)
         }
 
     }
