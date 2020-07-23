@@ -22,13 +22,6 @@ This app also showcases the following Jetpack libraries working together: [Room]
 Introduction
 ------------
 
-### Features
-
-This app contains the following screens:
-* A list of all installed apps that were downloaded from Play Store.
-* A settings view, that allows user to toggle auto-sync on/off and configure what is required for a sync to occur.
-* \[Eventually\] The plan is to have a filter screen (sort by name/last update/targetSDK value) and an about screen.
-
 #### Presentation layer
 
 This app is a Single-Activity app, with the following components:
@@ -70,9 +63,6 @@ There are two constraints: *battery not low* and *device charging*.
   * [Stetho][9] debug the database easily.
   * [RxJava][10] deals with MvRx and coordinates most of the work on the app.
   * [Dagger 2][11] dependency injection for sharedPreferences with application Context, provides singleton database instances.
-
-#### Special thanks
-A lot of the structure and ideas from this app came from [Changes](https://play.google.com/store/apps/details?id=com.saladevs.changelogclone), which is [also open source](https://github.com/GSala/Changelogs).
 
 
 [1]: https://github.com/mikepenz/Android-Iconics
