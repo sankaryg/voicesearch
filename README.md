@@ -3,19 +3,10 @@
 Voice Search
 =================
 
-This app tracks changes on targetSDK from your apps. Starting November 1st, 2018, Google is [requiring all app updates](https://developer.android.com/distribute/best-practices/develop/target-sdk) to target at least 26 (28 is the latest).
+Speech to Text Searching Assistant without Ads makes it faster and easier than ever to search apps, web search, or image search for the content you want. It works as an assistant to apps installed in your device, and allows you to turn normal talk into searching text.
 
-The idea behind this project was to make it easy to see the apps which are "voluntarily" being updated regularly, and the ones that are resisting until the last second.
-I am personally a fan of [App Inspector](https://play.google.com/store/apps/details?id=bg.projectoria.appinspector), with 100K+ downloads, simple interface, and great information. I had, however, 3 issues with it:
+🔍🎙Download Voice Search - Speech to Text Searching Assistant without Ads now from Google Play, speak to your mic and start searching easier, faster and smarter!🎙🔍
 
-* Really long time to load when app is opened;
-* No search or way to find what you want;
-* No material design.
-
-Based on this, I made an improved app, with everything App Inspector has and more. SDK Monitor caches everything using Room, so time to load is **REALLY** fast.
-It also makes use of Implicit Broadcasts (where available) to automatically keep track of app installs, updates and deletions.
-Android Oreo removed these (except deletion), so the app has the option to use WorkManager to automatically fetch periodically in background for these changes.
-Every time the targetSDK value for an app is changed, the app will show a push notification.
 
 This app also showcases the following Jetpack libraries working together: [Room](https://developer.android.com/topic/libraries/architecture/room.html), [ViewModel](https://developer.android.com/reference/android/arch/lifecycle/ViewModel.html), [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager), [DataBinding](https://developer.android.com/topic/libraries/data-binding/) and [Navigation](https://developer.android.com/topic/libraries/architecture/navigation/).
 
