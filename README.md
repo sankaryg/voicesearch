@@ -19,16 +19,6 @@ Every time the targetSDK value for an app is changed, the app will show a push n
 
 This app also showcases the following Jetpack libraries working together: [Room](https://developer.android.com/topic/libraries/architecture/room.html), [ViewModel](https://developer.android.com/reference/android/arch/lifecycle/ViewModel.html), [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager), [DataBinding](https://developer.android.com/topic/libraries/data-binding/) and [Navigation](https://developer.android.com/topic/libraries/architecture/navigation/).
 
-App is currently in beta, you can download the apk here:
-
-[APK DOWNLOAD](https://github.com/sankaryg/voicesearch/raw/master/assets/sdkmonitor.apk)
-
-## Screenshots
-
-| Fast Scroller | Logs | Details | Settings |
-|:-:|:-:|:-:|:-:|
-| ![First](assets/main.png?raw=true) | ![Sec](assets/logs.png?raw=true) | ![Third](assets/details.jpg?raw=true) | ![Fourth](assets/settings.png?raw=true) |
-
 Introduction
 ------------
 
