@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "applicationId": "com.abhi.voicesearch",
+  "variantType": "BASE_APK",
+  "elements": [
+    {
+      "outputType": {
+        "type": "APK"
+      },
+      "apkData": {
+        "type": "MAIN",
+        "splits": [],
+        "versionCode": 14,
+        "versionName": "0.9.3",
+        "outputFile": "app-debug.apk",
+        "fullName": "debug",
+        "baseName": "debug",
+        "dirName": ""
+      },
+      "path": "app-debug.apk",
+      "properties": {}
+    }
+  ]
+}

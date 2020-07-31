@@ -34,13 +34,13 @@ android {
             storePassword = keystoreProperties["storePassword"] as String
         }
     }
-    compileSdkVersion(28)
+    compileSdkVersion(29)
     defaultConfig {
         applicationId = "com.abhi.voicesearch"
         minSdkVersion(21)
-        targetSdkVersion(28)
-        versionCode = 13
-        versionName = "0.9.2"
+        targetSdkVersion(29)
+        versionCode = 14
+        versionName = "0.9.3"
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

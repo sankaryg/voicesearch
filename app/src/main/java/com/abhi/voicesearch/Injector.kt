@@ -84,7 +84,7 @@ class RxPrefsModule {
     @Provides
     @Named("showChoices")
     fun showChoices(rxPrefs: RxkPrefs): Pref<Boolean> {
-        return rxPrefs.boolean("showChoices", false)
+        return rxPrefs.boolean("showChoices", true)
     }
 
     @Provides
