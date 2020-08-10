@@ -18,7 +18,7 @@ android {
     signingConfigs {
         register("release") {
 
-            val keystorePropertiesFile = file("../upload-keystore.properties")
+            val keystorePropertiesFile = file("upload-keystore.properties")
 
             if (!keystorePropertiesFile.exists()) {
                 logger.warn("Release builds may not work: signing config not found.")
@@ -39,16 +39,16 @@ android {
         applicationId = "com.abhi.voicesearch"
         minSdkVersion(21)
         targetSdkVersion(29)
-        versionCode = 14
-        versionName = "0.9.3"
+        versionCode = 15
+        versionName = "0.9.4"
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         named("release") {
             isDebuggable = false
-            isMinifyEnabled = true
-            isShrinkResources = true
+            isMinifyEnabled = false
+            isShrinkResources = false
             setProguardFiles(
                 listOf(
                     getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -82,14 +82,14 @@ dependencies {
     implementation(Libs.Kotlin.stdlib)
     implementation(Libs.Coroutines.core)
     implementation(Libs.Coroutines.android)
-    implementation("com.android.support:design:28.0.0")
-    implementation("androidx.sharetarget:sharetarget:1.0.0-rc01")
-    implementation("androidx.core:core:1.3.0")
+    implementation("com.android.support:design:29.0.0")
+    implementation("androidx.sharetarget:sharetarget:1.0.0")
+    implementation("androidx.core:core:1.3.1")
 
     //fcm
-    implementation("com.google.firebase:firebase-core:17.0.0")
-    implementation("com.google.firebase:firebase-iid:19.0.1")
-    implementation("com.google.firebase:firebase-messaging:19.0.1")
+    implementation("com.google.firebase:firebase-core:17.4.4")
+    implementation("com.google.firebase:firebase-iid:20.2.4")
+    implementation("com.google.firebase:firebase-messaging:20.2.4")
     // Google
     implementation(Libs.Google.material)
     implementation(Libs.AndroidX.coreKtx)
@@ -164,7 +164,7 @@ dependencies {
     implementation("com.mikepenz:google-material-typeface:3.0.1.2.original@aar")
 
     // UI
-    implementation("com.reddit:indicator-fast-scroll:1.0.1")
+    implementation("com.reddit:indicator-fast-scroll:1.2.1")
 
     // Time
     implementation(Libs.timeAgo)
@@ -172,5 +172,5 @@ dependencies {
     // Debugging
     implementation(Libs.junit)
     testImplementation("org.mockito:mockito-core:2.24.5")
-    testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0")
+    testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
 }

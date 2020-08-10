@@ -131,6 +131,7 @@ class RepositoriesMutualDependenciesModule {
             "Apps.db"
         )
             .fallbackToDestructiveMigration()
+                .allowMainThreadQueries()
             .build()
     }
 }

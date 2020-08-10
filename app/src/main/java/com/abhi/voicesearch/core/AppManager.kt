@@ -14,8 +14,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.CalendarContract
 import android.provider.ContactsContract
-import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat
+import android.util.Log
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.palette.graphics.Palette
@@ -46,29 +45,12 @@ object AppManager {
     var forceRefresh = true
     var listOfFixedApp:List<FixedApp> = mutableListOf()
 
-    @RequiresApi(Build.VERSION_CODES.N)
     fun init(context: Context) {
         this.context = context
         packageManager = context.packageManager
     }
 
-    /*fun a(string2: String?): Intent {
-        val intent = Intent("android.intent.action.SEARCH")
-        intent.addCategory("android.intent.category.DEFAULT")
-        intent.putExtra("query", string2)
-        return intent
-    }
 
-    fun abcd(activity: Activity, query:String) {
-        try {
-            val intent = this.a(query)
-            intent.component = ComponentName(this.c().activityInfo.packageName, this.c().activityInfo.name)
-            intent.flags = 268435456
-            activity.startActivity(intent)
-        } catch (throwable: ActivityNotFoundException) {
-        } catch (throwable: SecurityException) {
-        }
-    }*/
 
     fun launchIntentForPackage(app: App, query: String?, default:Boolean = false) {
         try {
@@ -130,30 +112,7 @@ object AppManager {
         intent.type = "text/plain"
         return intent
     }
-    //Ref: https://stackoverflow.com/questions/22230937/how-can-i-launch-googlenow-by-an-intent-with-adding-a-search-query
-    fun openSearch(app:App, query: String): Boolean {
-        val searchManager = context.getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val globalSearchActivity = searchManager.globalSearchActivity
-        if (globalSearchActivity == null) {
-            Logger.w("No global search activity found.")
-            return false
-        }
-        val intent = Intent(SearchManager.INTENT_ACTION_GLOBAL_SEARCH)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        intent.component = globalSearchActivity
-        val appSearchData = Bundle()
-        appSearchData.putString("source", app.packageName)
-        intent.putExtra(SearchManager.APP_DATA, appSearchData)
-        intent.putExtra(SearchManager.QUERY, query)
-        intent.putExtra(SearchManager.EXTRA_SELECT_QUERY, true)
-        return try {
-            context.startActivity(intent)
-            true
-        } catch (ex: ActivityNotFoundException) {
-            Logger.w("Global search activity not found: %s", globalSearchActivity)
-            false
-        }
-    }
+
 
     fun appInstalledOrNot(uri: String): Boolean {
         val pm: PackageManager = packageManager
@@ -198,10 +157,13 @@ object AppManager {
         try {
             jsonString = context.resources.openRawResource(R.raw.ai).bufferedReader().use { it.readText() }
             val gson = Gson()
-            val listApp = object : TypeToken<ArrayList<FixedApp>>() {}.type
+            val listApp = object : TypeToken<List<FixedApp>>() {}.type
             fixedapp = gson.fromJson(jsonString, listApp)
+            Log.d("t1", jsonString+"_"+listApp)
             fixedapp.forEachIndexed{idx, fixed ->
-                Logger.i("data", "> Item $idx:\n$fixed")}
+                Log.d("t1", "> Item $idx:\n$fixed"+"_"+ context)
+                Logger.i("data", "> Item $idx:\n$fixed")
+            }
         }catch (ioException:IOException){
             ioException.printStackTrace()
             null

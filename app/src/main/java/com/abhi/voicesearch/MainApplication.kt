@@ -24,7 +24,6 @@ class MainApplication : Application(), HasAndroidInjector {
 
     lateinit var component: SingletonComponent
 
-    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate() {
         super.onCreate()
         INSTANCE = this
@@ -36,7 +35,7 @@ class MainApplication : Application(), HasAndroidInjector {
 
         Logger.addLogAdapter(object : AndroidLogAdapter() {
             override fun isLoggable(priority: Int, tag: String?): Boolean {
-                return com.abhi.voicesearch.BuildConfig.DEBUG
+                return BuildConfig.DEBUG
             }
         })
 
@@ -47,7 +46,7 @@ class MainApplication : Application(), HasAndroidInjector {
         }
         LeakCanary.install(this)
 
-        if (com.abhi.voicesearch.BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG) {
             Stetho.initializeWithDefaults(this)
         }
 
