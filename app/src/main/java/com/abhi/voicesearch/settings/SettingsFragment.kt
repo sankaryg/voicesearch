@@ -1,12 +1,10 @@
 package com.abhi.voicesearch.settings
 
 import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.Intent
-import android.content.pm.ResolveInfo
 import android.net.Uri
 import android.os.Bundle
-import android.os.Parcelable
-import android.text.TextUtils
 import com.abhi.base.mvrx.simpleController
 import com.abhi.ui.dagger.DaggerBaseRecyclerFragment
 import com.abhi.voicesearch.Injector
@@ -17,6 +15,10 @@ import com.abhi.voicesearch.marquee
 import com.airbnb.epoxy.EpoxyController
 import com.airbnb.mvrx.Loading
 import com.airbnb.mvrx.fragmentViewModel
+import com.franmontiel.attributionpresenter.AttributionPresenter
+import com.franmontiel.attributionpresenter.entities.Attribution
+import com.franmontiel.attributionpresenter.entities.Library
+import com.franmontiel.attributionpresenter.entities.License
 import javax.inject.Inject
 
 
@@ -139,6 +141,15 @@ class SettingsFragment : DaggerBaseRecyclerFragment() {
                     AboutDialog.show(requireActivity())
                 }
                 .addTo(this)
+
+            com.abhi.voicesearch.SettingsSwitchBindingModel_()
+                    .id("attribution")
+                    .title("Attribution")
+                    .icon(R.drawable.ic_info)
+                    .clickListener { v ->
+                        create(requireActivity())?.showDialog("Open Source Licenses")
+                    }
+                    .addTo(this)
         }
     }
 
@@ -148,4 +159,166 @@ class SettingsFragment : DaggerBaseRecyclerFragment() {
             context?.let { it1 -> it.pushDirectShareTargets(it1) }
         }
     }
+
+    companion object{
+        private fun createBaseAttributions(context: Context): AttributionPresenter.Builder? {
+            return AttributionPresenter.Builder(context)
+                    .addAttributions(
+                            Attribution.Builder("EPOXY")
+                                    .addCopyrightNotice("Copyright 2016 Airbnb, Inc.")
+                                    .addLicense(License.APACHE)
+                                    .setWebsite("https://github.com/airbnb/epoxy")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("Indicator Fast Scroll")
+                                    .addCopyrightNotice("Copyright (c) 2018 Reddit, Inc.")
+                                    .addLicense(License.MIT)
+                                    .setWebsite("https://github.com/reddit/IndicatorFastScroll")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("Logger")
+                                    .addCopyrightNotice("Copyright 2018 Orhan Obut")
+                                    .addLicense(License.APACHE)
+                                    .setWebsite("https://github.com/orhanobut/logger")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("Material-Dialogs")
+                                    .addCopyrightNotice("Copyright 2018 Aidan Follestad")
+                                    .addLicense(License.APACHE)
+                                    .setWebsite("https://github.com/afollestad/material-dialogs")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("rxkprefs")
+                                    .addCopyrightNotice("Copyright 2016 Aidan Follestad")
+                                    .addLicense(License.APACHE)
+                                    .setWebsite("https://github.com/afollestad/rxkprefs")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("RxRelay")
+                                    .addCopyrightNotice("Copyright 2015 Jake Wharton")
+                                    .addLicense(License.APACHE)
+                                    .setWebsite("https://github.com/JakeWharton/RxRelay")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("AttributionPresenter")
+                                    .addCopyrightNotice("Copyright 2017 Francisco José Montiel Navarro")
+                                    .addLicense(License.APACHE)
+                                    .setWebsite("https://github.com/franmontiel/AttributionPresenter")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Library.DAGGER_2,
+                            Library.GSON)
+                    .addAttributions(
+                            Attribution.Builder("Facebook Icon")
+                                    .addCopyrightNotice("Icon made by Pixel perfect(https://www.flaticon.com/authors/pixel-perfect) from Flaticon(Flaticon.com)")
+                                    .addLicense(License.CREATIVE_COMMEON)
+                                    .setWebsite("https://www.flaticon.com/free-icon/facebook_2111392?term=facebook&page=1&position=3")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("IMDB Icon")
+                                    .addCopyrightNotice("Icon made by Pixel perfect(https://www.flaticon.com/authors/pixel-perfect) from Flaticon(Flaticon.com)")
+                                    .addLicense(License.CREATIVE_COMMEON)
+                                    .setWebsite("https://www.flaticon.com/free-icon/imdb_889199?term=imdb&page=1&position=1")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("Rotten Tomatoes Icon")
+                                    .addCopyrightNotice("Icon made by Pixel perfect(https://www.flaticon.com/authors/pixel-perfect) from Flaticon(Flaticon.com)")
+                                    .addLicense(License.CREATIVE_COMMEON)
+                                    .setWebsite("https://www.flaticon.com/free-icon/tomato_1202125?term=tomatoes&page=1&position=4")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("Twitter Icon")
+                                    .addCopyrightNotice("Icon made by Pixel perfect(https://www.flaticon.com/authors/pixel-perfect) from Flaticon(Flaticon.com)")
+                                    .addLicense(License.CREATIVE_COMMEON)
+                                    .setWebsite("https://www.flaticon.com/free-icon/twitter_733579?term=twitter&page=1&position=1")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("Wikipedia Icon")
+                                    .addCopyrightNotice("Icon made by Freepik(https://www.flaticon.com/authors/freepik) from Flaticon(Flaticon.com)")
+                                    .addLicense(License.CREATIVE_COMMEON)
+                                    .setWebsite("https://www.flaticon.com/free-icon/wikipedia_226240?term=wikipedia&page=1&position=25")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("Yahoo Icon")
+                                    .addCopyrightNotice("Icon made by Pixel perfect(https://www.flaticon.com/authors/pixel-perfect) from Flaticon(Flaticon.com)")
+                                    .addLicense(License.CREATIVE_COMMEON)
+                                    .setWebsite("https://www.flaticon.com/free-icon/yahoo_226262?term=yahoo&page=1&position=1")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("Bing Icon")
+                                    .addCopyrightNotice("Icon made by Freepik(https://www.flaticon.com/authors/freepik) from Flaticon(Flaticon.com)")
+                                    .addLicense(License.CREATIVE_COMMEON)
+                                    .setWebsite("https://www.flaticon.com/free-icon/bing_356066?term=bing&page=1&position=20")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("Reddit Icon")
+                                    .addCopyrightNotice("Icon made by Freepik(https://www.flaticon.com/authors/freepik) from Flaticon(Flaticon.com)")
+                                    .addLicense(License.CREATIVE_COMMEON)
+                                    .setWebsite("https://www.flaticon.com/free-icon/reddit_1409938?term=reddit&page=1&position=2")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("Amazon Icon")
+                                    .addCopyrightNotice("Icon made by Icons8(https://icons8.com)")
+                                    .addLicense(License.CREATIVE_COMMEON)
+                                    .setWebsite("https://icons8.com/icons/set/amazon-icon")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("DuckDuckGo Icon")
+                                    .addCopyrightNotice("Icon made by Icons8(https://icons8.com)")
+                                    .addLicense(License.CREATIVE_COMMEON)
+                                    .setWebsite("https://icons8.com/icons/set/duckduckgo")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("EBay Icon")
+                                    .addCopyrightNotice("Icon made by Icons8(https://icons8.com)")
+                                    .addLicense(License.CREATIVE_COMMEON)
+                                    .setWebsite("https://icons8.com/icons/set/ebay")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("Google Translate Icon")
+                                    .addCopyrightNotice("Icon made by Icons8(https://icons8.com)")
+                                    .addLicense(License.CREATIVE_COMMEON)
+                                    .setWebsite("https://icons8.com/icons/set/google-translate-icon")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("Google Icon")
+                                    .addCopyrightNotice("Icons made by Freepik (Freepik.com) from Flaticon (Flaticon.com)")
+                                    .addLicense(License.CREATIVE_COMMEON)
+                                    .setWebsite("https://www.flaticon.com/free-icon/search_281764?term=google&page=1&position=3")
+                                    .build()
+                    )
+                    .addAttributions(
+                            Attribution.Builder("YouTube Icon")
+                                    .addCopyrightNotice("Icons made by Freepik (Freepik.com) from Flaticon (Flaticon.com)")
+                                    .addLicense(License.CREATIVE_COMMEON)
+                                    .setWebsite("https://www.flaticon.com/free-icon/youtube_1384060?term=youtube&page=1&position=2")
+                                    .build()
+                    )
+        }
+
+        fun create(context: Context?): AttributionPresenter? {
+            return context?.let { createBaseAttributions(it)?.build() }
+        }
+    }
+
+
 }

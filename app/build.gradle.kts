@@ -39,8 +39,8 @@ android {
         applicationId = "com.abhi.voicesearch"
         minSdkVersion(21)
         targetSdkVersion(29)
-        versionCode = 15
-        versionName = "0.9.4"
+        versionCode = 16
+        versionName = "0.9.5"
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -77,7 +77,7 @@ dependencies {
 
     implementation(project(":base"))
     implementation(project(":base-android"))
-
+    implementation(project(":library"))
     // Kotlin
     implementation(Libs.Kotlin.stdlib)
     implementation(Libs.Coroutines.core)

@@ -10,6 +10,7 @@ buildscript {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.41")
         classpath("com.squareup.sqldelight:gradle-plugin:1.1.3")
         classpath("com.google.gms:google-services:4.3.3")
+        classpath("com.github.dcendents:android-maven-gradle-plugin:1.5")
     }
 }
 
